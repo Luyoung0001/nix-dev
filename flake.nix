@@ -71,6 +71,8 @@
             ];
 
             shellHook = ''
+              export LD_LIBRARY_PATH="${pkgsPinned.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH"
+
               export CC_RV32_LINUX="$(command -v riscv32-unknown-linux-gnu-gcc || true)"
               export CC_RV64_LINUX="$(command -v riscv64-unknown-linux-gnu-gcc || true)"
               export CC_RV32_ELF="$(command -v riscv32-none-elf-gcc || true)"
